@@ -1,0 +1,9 @@
+C:\Users\jamej\OneDrive\Desktop\Git\Modding\JellyJam-Tiny-R.E.P.O-Mod\JellyJamMadness\JellyJamTinyREPO\JellyJamTinyREPO\bin\Debug\netstandard2.1\JellyJamTinyREPO.deps.json
+C:\Users\jamej\OneDrive\Desktop\Git\Modding\JellyJam-Tiny-R.E.P.O-Mod\JellyJamMadness\JellyJamTinyREPO\JellyJamTinyREPO\bin\Debug\netstandard2.1\JellyJamTinyREPO.dll
+C:\Users\jamej\OneDrive\Desktop\Git\Modding\JellyJam-Tiny-R.E.P.O-Mod\JellyJamMadness\JellyJamTinyREPO\JellyJamTinyREPO\obj\Debug\netstandard2.1\JellyJamTinyREPO.csproj.AssemblyReference.cache
+C:\Users\jamej\OneDrive\Desktop\Git\Modding\JellyJam-Tiny-R.E.P.O-Mod\JellyJamMadness\JellyJamTinyREPO\JellyJamTinyREPO\obj\Debug\netstandard2.1\JellyJamTinyREPO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jamej\OneDrive\Desktop\Git\Modding\JellyJam-Tiny-R.E.P.O-Mod\JellyJamMadness\JellyJamTinyREPO\JellyJamTinyREPO\obj\Debug\netstandard2.1\JellyJamTinyREPO.AssemblyInfoInputs.cache
+C:\Users\jamej\OneDrive\Desktop\Git\Modding\JellyJam-Tiny-R.E.P.O-Mod\JellyJamMadness\JellyJamTinyREPO\JellyJamTinyREPO\obj\Debug\netstandard2.1\JellyJamTinyREPO.AssemblyInfo.cs
+C:\Users\jamej\OneDrive\Desktop\Git\Modding\JellyJam-Tiny-R.E.P.O-Mod\JellyJamMadness\JellyJamTinyREPO\JellyJamTinyREPO\obj\Debug\netstandard2.1\JellyJamTinyREPO.csproj.CoreCompileInputs.cache
+C:\Users\jamej\OneDrive\Desktop\Git\Modding\JellyJam-Tiny-R.E.P.O-Mod\JellyJamMadness\JellyJamTinyREPO\JellyJamTinyREPO\obj\Debug\netstandard2.1\JellyJamTinyREPO.sourcelink.json
+C:\Users\jamej\OneDrive\Desktop\Git\Modding\JellyJam-Tiny-R.E.P.O-Mod\JellyJamMadness\JellyJamTinyREPO\JellyJamTinyREPO\obj\Debug\netstandard2.1\JellyJamTinyREPO.dll
