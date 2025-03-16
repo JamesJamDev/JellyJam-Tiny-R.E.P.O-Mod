@@ -79,6 +79,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[2022.3.21, )"
+            },
+            "Zehs.REPOLib": {
+              "target": "Package",
+              "version": "[1.4.2, )"
             }
           },
           "imports": [

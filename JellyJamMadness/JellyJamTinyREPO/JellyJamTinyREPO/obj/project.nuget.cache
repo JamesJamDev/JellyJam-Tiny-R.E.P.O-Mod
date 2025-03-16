@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "D+mausp0R20=",
+  "dgSpecHash": "sADTqpVM4v0=",
   "success": true,
   "projectFilePath": "C:\\Users\\jamej\\OneDrive\\Desktop\\Git\\Modding\\JellyJam-Tiny-R.E.P.O-Mod\\JellyJamMadness\\JellyJamTinyREPO\\JellyJamTinyREPO\\JellyJamTinyREPO.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\jamej\\.nuget\\packages\\bepinex.assemblypublicizer.msbuild\\0.4.1\\bepinex.assemblypublicizer.msbuild.0.4.1.nupkg.sha512",
     "C:\\Users\\jamej\\.nuget\\packages\\bepinex.baselib\\5.4.20\\bepinex.baselib.5.4.20.nupkg.sha512",
     "C:\\Users\\jamej\\.nuget\\packages\\bepinex.core\\5.4.21\\bepinex.core.5.4.21.nupkg.sha512",
+    "C:\\Users\\jamej\\.nuget\\packages\\bepinex.plugininfoprops\\2.1.0\\bepinex.plugininfoprops.2.1.0.nupkg.sha512",
     "C:\\Users\\jamej\\.nuget\\packages\\harmonyx\\2.7.0\\harmonyx.2.7.0.nupkg.sha512",
     "C:\\Users\\jamej\\.nuget\\packages\\linkoid.repo.common.build\\0.2.1\\linkoid.repo.common.build.0.2.1.nupkg.sha512",
     "C:\\Users\\jamej\\.nuget\\packages\\linkoid.repo.plugin.build\\0.2.1\\linkoid.repo.plugin.build.0.2.1.nupkg.sha512",
@@ -45,7 +46,8 @@
     "C:\\Users\\jamej\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\jamej\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\jamej\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
-    "C:\\Users\\jamej\\.nuget\\packages\\unityengine.modules\\2022.3.21\\unityengine.modules.2022.3.21.nupkg.sha512"
+    "C:\\Users\\jamej\\.nuget\\packages\\unityengine.modules\\2022.3.21\\unityengine.modules.2022.3.21.nupkg.sha512",
+    "C:\\Users\\jamej\\.nuget\\packages\\zehs.repolib\\1.4.2\\zehs.repolib.1.4.2.nupkg.sha512"
   ],
   "logs": []
 }

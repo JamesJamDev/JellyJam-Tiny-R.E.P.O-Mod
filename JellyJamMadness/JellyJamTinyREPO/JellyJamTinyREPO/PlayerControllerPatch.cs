@@ -1,4 +1,7 @@
-﻿using HarmonyLib;
+﻿using ExitGames.Client.Photon;
+using HarmonyLib;
+using Photon.Pun;
+using Photon.Realtime;
 using System;
 using System.Runtime.CompilerServices;
 using UnityEngine;
@@ -11,8 +14,8 @@ namespace JellyJamTinyREPO
         // Player Stats 
 
         // Size & Camera Offset
-        private static float playerSize = 0.25f;
-        private static float cameraOffset = -1.05f;
+        public static float playerSize = 0.25f;
+        private static float cameraOffset = -1.05f; //-1.05
 
         // Move Speeds
         private static float walkSpeed = 0.10f;
@@ -34,7 +37,7 @@ namespace JellyJamTinyREPO
         [HarmonyPostfix]
         public static void StartPatch(PlayerController __instance)
         {
-            
+            TriggerShrinkEvent();
         }
 
         [HarmonyPostfix, HarmonyPatch("Update")]
@@ -49,14 +52,25 @@ namespace JellyJamTinyREPO
 
         }
 
+        public static void TriggerShrinkEvent(int playerId = -1)
+        {
+            object[] data = new object[] { playerId }; // Send -1 to shrink all players
+            RaiseEventOptions options = new RaiseEventOptions { Receivers = ReceiverGroup.All };
+            PhotonNetwork.RaiseEvent(JellyJamTinyREPO.ShrinkEvent.EventCode, data, options, SendOptions.SendReliable);
+        }
+
+
+
         private static void SetOverride(PlayerController __instance)
         {
             /* Lets detail all the changes we make incase anyone wants to adjust the values
              * Adjust the values at the top of the script to change them down here easily
              */
 
+            
+
             // Adjust size of player (x, y, z) scale
-            __instance.gameObject.transform.localScale = new Vector3(playerSize, playerSize, playerSize);
+            //__instance.gameObject.transform.localScale = new Vector3(playerSize, playerSize, playerSize);
 
             // This is just to adjust the camera position as it does not follow the actual player scale
             CameraCrouchPosition.instance.gameObject.transform.localPosition = new Vector3(CameraCrouchPosition.instance.gameObject.transform.localPosition.x, cameraOffset, CameraCrouchPosition.instance.gameObject.transform.localPosition.z);
