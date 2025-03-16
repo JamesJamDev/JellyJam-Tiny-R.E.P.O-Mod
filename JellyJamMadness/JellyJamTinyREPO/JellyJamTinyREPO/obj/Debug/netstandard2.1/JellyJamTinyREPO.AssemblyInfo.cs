@@ -52,7 +52,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JellyJam")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+51129e77291695f7f78500f5ec20ae8d9fd63576")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+72694a77ef9eb2e940055464cdc65c3aa0ff4ec4")]
 [assembly: System.Reflection.AssemblyProductAttribute("JellyJamTinyREPO")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JellyJamTinyREPO")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

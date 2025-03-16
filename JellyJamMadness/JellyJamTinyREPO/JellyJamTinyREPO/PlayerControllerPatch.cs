@@ -27,7 +27,7 @@ namespace JellyJamTinyREPO
         private static float minHeldDis = 0.5f;
         private static float maxHeldDis = 1.5f;
 
-        private static bool infiniteEnergy = false;
+        private static bool infiniteEnergy = true;
 
 
         [HarmonyPatch("Start")]
@@ -35,14 +35,6 @@ namespace JellyJamTinyREPO
         public static void StartPatch(PlayerController __instance)
         {
             
-        }
-
-
-
-        [HarmonyPrefix, HarmonyPatch("Update")]
-        private static void Update_Prefix(PlayerController __instance)
-        {
-
         }
 
         [HarmonyPostfix, HarmonyPatch("Update")]
