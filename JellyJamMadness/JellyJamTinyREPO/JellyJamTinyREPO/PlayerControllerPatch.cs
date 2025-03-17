@@ -30,7 +30,7 @@ namespace JellyJamTinyREPO
         private static float minHeldDis = 0.5f;
         private static float maxHeldDis = 1.5f;
 
-        private static bool infiniteEnergy = true;
+        private static bool infiniteEnergy = false;
 
 
         [HarmonyPatch("Start")]
