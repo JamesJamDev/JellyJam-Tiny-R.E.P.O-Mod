@@ -40,6 +40,7 @@ namespace JellyJamTinyREPO
             if (eventData.CustomData is not object[] data || data.Length == 0)
                 return;
 
+            JellyJamTinyREPO.Logger.LogInfo("Trying to shrink players");
             int playerId = (int)data[0]; // Get the player ID (or -1 for all)
 
             foreach (var player in GameObject.FindObjectsOfType<PlayerController>()) // Replace with your player class

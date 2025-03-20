@@ -44,11 +44,16 @@ namespace JellyJamTinyREPO
         [HarmonyPostfix]
         private static void EndFlush(ToiletFun __instance)
         {
+
             JellyJamTinyREPO.Logger.LogInfo("Toilet Flushed.");
 
             if (Vector3.Distance(__instance.gameObject.transform.position, PlayerController.instance.transform.position) <= 1)
             {
-                PlayerAvatar.instance.PlayerDeath(0);
+                PlayerAvatar player = PlayerController.instance.playerAvatar.GetComponent<PlayerAvatar>();
+
+                //PlayerAvatar.instance.PlayerDeath(0);
+                player.tumble.physGrabObject.Teleport(player.transform.position + new Vector3(0, 100, 0), player.transform.rotation);
+                JellyJamTinyREPO.Logger.LogInfo("Trying Teleport");
             }
         }
     }
