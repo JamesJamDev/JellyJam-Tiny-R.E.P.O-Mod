@@ -3,6 +3,7 @@ using HarmonyLib;
 using Photon.Pun;
 using Photon.Realtime;
 using System;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
@@ -30,7 +31,7 @@ namespace JellyJamTinyREPO
         private static float minHeldDis = 0.5f;
         private static float maxHeldDis = 1.5f;
 
-        private static bool infiniteEnergy = false;
+        private static bool infiniteEnergy = true;
 
 
         [HarmonyPatch("Start")]
@@ -38,6 +39,17 @@ namespace JellyJamTinyREPO
         public static void StartPatch(PlayerController __instance)
         {
             TriggerShrinkEvent();
+
+            if (SemiFunc.IsMasterClientOrSingleplayer())
+            {
+                LocalShrink(__instance);
+            }
+        }
+
+        public static void LocalShrink(PlayerController __instance)
+        {
+            __instance.transform.localScale = new UnityEngine.Vector3(PlayerControllerPatch.playerSize, PlayerControllerPatch.playerSize, PlayerControllerPatch.playerSize); // Shrink player
+            __instance.playerAvatarPrefab.transform.localScale = new UnityEngine.Vector3(PlayerControllerPatch.playerSize + 0.05f, PlayerControllerPatch.playerSize + 0.05f, PlayerControllerPatch.playerSize + 0.05f);
         }
 
         [HarmonyPostfix, HarmonyPatch("Update")]
@@ -59,21 +71,21 @@ namespace JellyJamTinyREPO
             PhotonNetwork.RaiseEvent(JellyJamTinyREPO.ShrinkEvent.EventCode, data, options, SendOptions.SendReliable);
         }
 
-
-
         private static void SetOverride(PlayerController __instance)
         {
             /* Lets detail all the changes we make incase anyone wants to adjust the values
              * Adjust the values at the top of the script to change them down here easily
              */
 
-            
+            // Adjust the collision to check if the player is grounded
+            // This is to prevent the player from jumping on walls
+            __instance.CollisionGrounded.Collider.radius = 0.04f;
 
             // Adjust size of player (x, y, z) scale
             //__instance.gameObject.transform.localScale = new Vector3(playerSize, playerSize, playerSize);
 
             // This is just to adjust the camera position as it does not follow the actual player scale
-            CameraCrouchPosition.instance.gameObject.transform.localPosition = new Vector3(CameraCrouchPosition.instance.gameObject.transform.localPosition.x, cameraOffset, CameraCrouchPosition.instance.gameObject.transform.localPosition.z);
+            CameraCrouchPosition.instance.gameObject.transform.localPosition = new UnityEngine.Vector3(CameraCrouchPosition.instance.gameObject.transform.localPosition.x, cameraOffset, CameraCrouchPosition.instance.gameObject.transform.localPosition.z);
 
             // Move Speed for walking
             __instance.playerOriginalMoveSpeed = walkSpeed;

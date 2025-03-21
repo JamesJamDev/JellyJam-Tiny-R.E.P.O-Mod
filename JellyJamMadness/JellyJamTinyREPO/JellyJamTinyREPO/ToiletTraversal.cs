@@ -23,20 +23,22 @@ namespace JellyJamTinyREPO
             // Empty the Current list
             toilets.Clear();
 
+            JellyJamTinyREPO.Logger.LogInfo("Starting Toilet Check.");
+
             // Get all the toilets in the lobby
             var arr = GameObject.FindObjectsOfType<ToiletFun>();
 
             // Append them all to the list
             foreach (ToiletFun item in arr)
             {
-                toilets.Append(item.gameObject);
+                toilets.Add(item.gameObject);
                 JellyJamTinyREPO.Logger.LogInfo("Found a Toilet.");
             }
 
-            JellyJamTinyREPO.Logger.LogInfo("Done Toilet Check");
+            JellyJamTinyREPO.Logger.LogInfo($"Done Toilet Check, Total: {toilets.Count}");
         }
     }
-
+    //PlayerAvatar.instance.PlayerDeath(0); this kills the player
     [HarmonyPatch(typeof(ToiletFun))]
     internal static class ToiletDetector
     {
@@ -51,8 +53,14 @@ namespace JellyJamTinyREPO
             {
                 PlayerAvatar player = PlayerController.instance.playerAvatar.GetComponent<PlayerAvatar>();
 
-                //PlayerAvatar.instance.PlayerDeath(0);
-                player.tumble.physGrabObject.Teleport(player.transform.position + new Vector3(0, 100, 0), player.transform.rotation);
+                // Teleport the player to a random 
+                
+                int toiletID = UnityEngine.Random.Range(0, ToiletTraversal.toilets.Count);
+                JellyJamTinyREPO.Logger.LogInfo("Going to Toilet ID: " + toiletID);
+                GameObject _pos = ToiletTraversal.toilets[toiletID];
+
+
+                player.tumble.physGrabObject.Teleport(_pos.transform.position + new Vector3(0, 1, 0), player.transform.rotation);
                 JellyJamTinyREPO.Logger.LogInfo("Trying Teleport");
             }
         }
