@@ -12,28 +12,32 @@ public class SnailChase : MonoBehaviourPun
     private float checkTargetInterval = 0.5f;
     private float checkTimer;
 
-    void Awake()
-    {
-        navAgent = GetComponent<NavMeshAgent>();
-        navAgent.updateRotation = true;  // optional, depends on your needs
-    }
+    public float moveForce = 10f;
+    public float maxSpeed = 5f;
 
-    void Update()
-    {
-        if (!photonView.IsMine) return;
+        private Rigidbody rb;
 
-        checkTimer -= Time.deltaTime;
-        if (checkTimer <= 0f)
+        void Start()
         {
-            FindClosestPlayer();
-            checkTimer = checkTargetInterval;
+            rb = GetComponent<Rigidbody>();
+        FindClosestPlayer();
         }
 
-        if (targetPlayer != null && IsAgentValid())
+        void FixedUpdate()
         {
-            navAgent.SetDestination(targetPlayer.position);
+            if (targetPlayer == null) return;
+
+            Vector3 direction = (targetPlayer.position - transform.position).normalized;
+            Vector3 force = direction * moveForce;
+
+            // Only add force if not already going too fast
+            if (rb.velocity.magnitude < maxSpeed)
+            {
+                rb.AddForce(force, ForceMode.Acceleration);
+            }
         }
-    }
+    
+
 
     private void FindClosestPlayer()
     {
@@ -52,15 +56,6 @@ public class SnailChase : MonoBehaviourPun
         targetPlayer = closest;
     }
 
-    private bool IsAgentValid()
-    {
-        if (navAgent == null || !navAgent.enabled)
-            return false;
-
-        NavMeshHit hit;
-        return NavMesh.SamplePosition(transform.position, out hit, 1f, NavMesh.AllAreas);
-    }
-
     private void OnCollisionEnter(Collision other)
     {
         if (!photonView.IsMine) return;
@@ -74,13 +69,13 @@ public class SnailChase : MonoBehaviourPun
     [PunRPC]
     private void KillPlayerRPC(int playerViewID)
     {
+                Debug.Log("KILL PLAYER");
         var pv = PhotonView.Find(playerViewID);
         if (pv != null && pv.gameObject.CompareTag("Player"))
         {
             var health = pv.gameObject.GetComponent<PlayerHealth>();
             if (health != null)
             {
-                Debug.Log("KILL PLAYER");
                 health.Death(); 
             }
         }

@@ -66,14 +66,9 @@ namespace JellyJamSnailModNamespace
                 snail.AddComponent<PhotonView>();
             }
 
-            if (snail.GetComponent<EnemyNavMeshAgent>() == null)
+            if (snail.GetComponent<Rigidbody>() == null)
             {
-                snail.AddComponent<EnemyNavMeshAgent>();
-            }
-
-            if (snail.GetComponent<NavMeshAgent>() == null)
-            {
-                snail.AddComponent<NavMeshAgent>();
+                snail.AddComponent<Rigidbody>();
             }
 
             // If SnailSync requires initialization (e.g., setting speed), you can do that here:
